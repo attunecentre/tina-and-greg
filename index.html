@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Woodland Wedding</title>
+    <!-- Google Fonts for Elven Elegance and Readability -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Color Palette & Variables --- */
+        :root {
+            --bg-cream: #fbf9f4;
+            --forest-green: #1b3b2b;
+            --sage-green: #4c6e58;
+            --gold: #c5a059;
+            --dark-text: #2c3531;
+        }
+
+        /* --- Global Styles --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--bg-cream);
+            color: var(--dark-text);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--forest-green);
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+
+     
+               /* --- Navigation Menu --- */
+        nav {
+            background-color: var(--forest-green);
+            border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Remove the bullet point icon specifically for the nav links */
+        nav li::before {
+            content: none; 
+        }
+
+        nav a {
+            color: var(--bg-cream);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+      /* --- Header / Hero Banner (Adjusted for Nav) --- */
+      header {
+    /* 1. Subtle dark overlay so the white text reads clearly over the image */
+    background-image: linear-gradient(rgba(27, 59, 43, 0.4), rgba(27, 59, 43, 0.4)), 
+                     url('outdoor-location2.jpg'); 
+    
+    /* 2. Responsively size and position the photo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 3. White text contrast for the elven forest aesthetic */
+    color: var(--bg-cream); 
+    padding: 140px 20px 120px 20px; /* Taller padding to give the photo breathing room */
+    text-align: center;
+    border-bottom: 4px solid var(--gold);
+}
+
+header h1 {
+    color: var(--bg-cream); /* Changed from forest-green to cream white */
+    font-size: 3.5rem;      /* Bumped up slightly for a grander title feel */
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5); /* Soft shadow so names read easily over leaves/trees */
+}
+
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+     .quote {
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--sage-green); /* Muted contrast for the quote */
+    font-size: 0.95rem;
+}
+
+        /* --- Photo Panel Layout --- */
+        .photo-panel {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column on phones */
+            gap: 15px;
+            max-width: 1000px;
+            margin: 30px auto 10px auto;
+            padding: 0 20px;
+        }
+
+        @media (min-width: 768px) {
+            .photo-panel {
+                grid-template-columns: 1fr 1fr 1fr; /* Three columns on desktop */
+            }
+        }
+
+        .photo-card {
+            background-color: white;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(27, 59, 43, 0.05);
+            border: 1px solid #eef3f0;
+            transition: transform 0.3s ease;
+        }
+
+        /* Whimsical Elven hover effect */
+        .photo-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover; /* Crops photos neatly into equal rectangles */
+            border-radius: 4px;
+            display: block;
+        }
+
+        /* --- Main Content Layout --- */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(27, 59, 43, 0.05);
+            border-left: 4px solid var(--sage-green);
+        }
+
+        section h2 {
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+            position: relative;
+        }
+
+        /* Decorative flourish under headings */
+        section h2::after {
+            content: '🌿';
+            display: block;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            color: var(--gold);
+        }
+
+        /* --- Details Grid & Lists --- */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .details-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .detail-item {
+            padding: 15px;
+            background: var(--bg-cream);
+            border-radius: 4px;
+        }
+
+        .detail-item strong {
+            color: var(--forest-green);
+            font-family: 'Cinzel', serif;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: '•';
+            color: var(--gold);
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* --- Interactive Elements --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--forest-green);
+            color: var(--bg-cream);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--forest-green);
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--forest-green);
+            border: 1px solid var(--forest-green);
+        }
+
+        .center-btn {
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--sage-green);
+            font-size: 0.9rem;
+            font-family: 'Cinzel', serif;
+        }
+/* --- Password Lock Screen Overlay --- */
+        #password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--forest-green); /* Matches your dark green theme */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999; /* Keeps it on top of everything else */
+            padding: 20px;
+        }
+
+        .lock-card {
+            background-color: var(--bg-cream);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--gold);
+        }
+
+        .lock-card h2 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .lock-card p {
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            color: var(--dark-text);
+        }
+
+        .lock-card input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--sage-green);
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            text-align: center;
+            outline: none;
+        }
+
+        .lock-card input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 5px rgba(197, 160, 89, 0.5);
+        }
+
+        .lock-card button {
+            background-color: var(--forest-green);
+            color: var(--bg-cream);
+            border: 1px solid var(--forest-green);
+            padding: 12px 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .lock-card button:hover {
+            background-color: transparent;
+            color: var(--forest-green);
+        }    
+</style>
+</head>
+<body>
+<nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#details">When & where</a></li>
+            <li><a href="#rsvp">RSVP</a></li>
+<li><a href="#attire">Attire</a></li>
+            <li><a href="#afternoon-tea">Afternoon tea</a></li>
+<li><a href="#feast">The Feast</a></li>
+            <li><a href="#extra">Extra information</a></li>
+
+        </ul>
+    </nav>
+
+       
+      
+    <!-- Hero Header -->
+   <header id="home">
+        <h1>Tina & Greg</h1>
+        <div class="subtitle">Are Getting Married</div>
+       
+    </header>
+
+   
+
+    <div class="container">
+        
+        <!-- Introduction -->
+        <section>
+            <h2>The Wedding Gathering</h2>
+            <p style="text-align: center; font-size: 1.1rem;">
+                We celebrate the year of our 30th anniversary by getting married and are so excited to share our special day with our favorite people. Come journey with us into our enchanted garden and join in our celebration.</p><p>
+<br>
+ <p><p class="quote"><p style="text-align: center; font-size: 1.1rem;"><i>
+"I found it is the small everyday deeds of ordinary folk that keep the darkness at bay ..... small acts of kindess and love." Gandalf</i></p> 
+
+            </p>
+        </section>
+
+ <!-- Photo Panel Section -->
+    <div class="photo-panel">
+        <div class="photo-card">
+            <img src="tinaandgreg2.jpeg" alt="Tina and Greg drinking tea">
+        </div>
+        <div class="photo-card">
+            <img src="tngindiancloth.jpeg" alt="Tina and Greg">
+        </div>
+        <div class="photo-card">
+            <img src="tngtea1.jpeg" alt="Tina and Greg drinking tea">
+        </div>
+    </div>
+        <!-- When & Where -->
+        <section id="details">
+            <h2>When & Where</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <strong>📅 The Date & Time</strong>
+                    Date: Saturday 20 February, 2027<br>
+                    Arrival: Afternoon - time TBC<br>
+                    Ceremony & afternoon tea: TBC<br>
+Potluck feast & afterparty: 6.30pm
+                </div>
+                <div class="detail-item">
+                    <strong>📍 The Enchanted Garden Location</strong>
+                    183a Robinson Road<br>
+                    Lower Moutere 7175<br>
+(N.B. the house at the front is a private residence)
+                </div>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.9rem; font-style: italic; color: var(--sage-green);">
+                *Note: The ceremony and reception will both take place outdoors under the forest canopy.
+            </p>
+        </section>
+
+ <!-- RSVP Buttons -->
+       <section id="rsvp" style="background-color: #f4eae1; border-left-color: var(--gold);">
+            <h2>Join the Fellowship</h2>
+          
+            </p><p style="text-align: center; margin-bottom: 10px;"> Please let us know if you can make it by <strong>December 15, 2026</strong>.</p>
+            
+            <div class="center-btn">
+                <a href="https://baserow.io/form/lDBUdtOlHuThmY10vgBbboNGA8WzpCcyYqwJIF7PtFg" class="btn">RSVP Here</a>
+            </div>
+            
+            
+        </section>
+        <!-- Attire Guide -->
+       <section id="attire">
+            <h2>Woodland Attire</h2>
+            <p style="margin-bottom: 15px;">We invite you to dress in <strong>Forest Fantasy or Semi-Formal Garden</strong> attire.</p>
+            <ul>
+                <li><strong>The Palette:</strong> Earthy tones, moss greens, deep burgundies, autumn gold, soft creams, and twilight blues (or wear whatever you like!).</li>
+                <li><strong>Footwear:</strong> You will be walking on grass, dirt paths, and stones. Sturdy wedges, flats, boots, or dress shoes fit for a woodland stroll are highly recommended.</li>
+                <li><strong>Sunshine:</strong> You may need a hat or umbrella as shade from the warm sun.</li>
+<li><strong>Layers:</strong> The forest air will grow cool after sunset. We suggest bringing a cloak, shawl, or warm jacket for later.</li>
+             <li><strong>Seating:</strong> Whilst there will be seating available, for your comfort and ease, bring along your own portable fold-up chair.</li>
+</ul>
+        </section>
+
+         <!-- Afternoon tea -->
+       <section id="afternoon-tea">
+            <h2>Afternoon tea & bubbles</h2>
+            <p>After the ceremony join us for catered afternoon tea and drinks.</p>
+            <ul style="margin-top: 15px;">
+                <li><strong>Fine delights:</strong> A rustic, afternoon tea buffet.</li>
+                <li><strong>Liquid refreshments:</strong>  Bubbles and other cold and hot drinks will be available throughout the afternoon. (The evening will be BYO.)</li>
+            </ul>
+        </section>
+
+<!-- The Feast -->
+       <section id="feast">
+            <h2>The Potluck Feast</h2>
+            <p>In the evening we will have a potluck meal and live music from local bands, with extra friends joining us for the party. </p> 
+
+            <ul style="margin-top: 15px;">
+                <li><strong>Mains:</strong> For the potluck dinner, please bring a plate to share perhaps inspired by a Shire bounty and Elven hospitality. A rustic, farm-to-table buffet featuring artisanal breads, roasted meats, seasonal greens, and root vegetables will be provided as staples, with guests contributions welcome instead of any gifts please.</li>
+                <li><strong>Libations:</strong> Some ale, wines, and botanical mocktails will be available. Please BYO to supplement your hydration needs.</li>
+            </ul>
+<p>
+<p class="quote"><strong>"If more of us valued food and cheer and song above hoarded gold, it would be a merrier world." Tolkien.</strong></p>
+        </section>
+
+       
+
+  <!-- Extra information -->
+        <section id="extra" style="background-color: #f4eae1; border-left-color: var(--gold);">
+            <h2>Extra information</h2>
+            <p style="text-align: center; margin-bottom: 10px;"><strong>Parking</strong></p>
+            <p>Parking is in the neighbouring paddock, western side of our property. Signs will be out.</p>
+<p><br> 
+
+ <p style="text-align: center; margin-bottom: 10px;"><strong>Camping</strong></p>
+            <p>Basic camping is possible in the neighbouring paddock, western side of our property.</p>
+<p><br> 
+<p style="text-align: center; margin-bottom: 10px;"><strong>Games anyone?</strong></p>
+            <p>Garden games will be available such as giant Jenga, petanque, croquet, badminton, etc.</p>
+<p><br> 
+
+ <p style="text-align: center; margin-bottom: 10px;"><strong>Lounge area</strong></p>
+            <p>When in need of some downtime, we will have a lounge area with tea and coffee making facilities, couches and rugs.</p>
+<p><br> 
+ <p style="text-align: center; margin-bottom: 10px;"><strong>Live evening music</strong></p>
+            <p>We have fantastic local musicians lined up to entertain you into the night. The ceremony attendees will be joined by a wider crew of friends for a shared potluck feast from 6.30 and live music to follow.</p>
+<p><br> 
+ <p style="text-align: center; margin-bottom: 10px;"><strong>Photo booth</strong></p>
+            <p>There will be a photo booth pagoda and dress-ups available - make some memorable snaps to share later.</p>
+<p><br> 
+<p style="text-align: center; margin-bottom: 10px;"><strong>Creative sharing</strong></p>
+            <p>We have put aside an hour for any guest's performative love contribution. Whilst it could be in the form of a very short speech, our ideal is for an offering of the performative variety. After afternoon tea, we have a space where we welcome sharing of the creative kind in the theme of love, connection & community, with a request for items to be no longer than around 4 minutes. Let us know if you have something short,  sweet and suitably entertaining you'd like to share and we will add you to the list. There will be a guest book available to share any words on paper.</p>
+
+   <p> <br>   
+            
+             <p style="text-align: center; margin-bottom: 10px;"><strong>Offerings</strong></p>
+
+                  <p>Your presence is the greatest gift of all. After 30 years of feathering our hobbit-hole, we have no need for gifts. Please bring your delightful self, your loving spirit and a plate of feasty food to share for dinner. 
+            </p>
+        </section>
+
+    </div>
+ <p><p class="quote"><p style="text-align: center; font-size: 1.1rem;"><i>
+<div>
+<p style="text-align: center;">"May the wind under your wings bear you where the sun sails and the moon walks." J.R.R. Tolkien</p></style></div>
+<p></p>
+    <footer>
+        <p>Thank you for being part of our love story</p>
+    </footer>
+
+<!-- Password Overlay Screen -->
+<div id="password-overlay">
+    <div class="lock-card">
+        <h2>🌿 Our Woodland Wedding 🌿</h2>
+        <p>Please enter the password found on your invitation to view our website details.</p>
+        <input type="password" id="password-input" placeholder="Enter Password">
+        <button onclick="checkPassword()">Enter Site</button>
+        <p id="error-message" style="color: #ff4757; display: none; margin-top: 15px; font-size: 0.9rem; font-style: italic;">
+            Incorrect password. Please check your invitation and try again.
+        </p>
+    </div>
+</div>
+
+<script>
+function checkPassword() {
+    var enteredPassword = document.getElementById("password-input").value;
+    
+    // CHANGE THIS: Swap 'Woodland2027' with your preferred password
+    if (enteredPassword === "Woodland2027") { 
+        // Hide the lock screen and let them see the site
+        document.getElementById("password-overlay").style.display = "none";
+        document.body.style.overflow = "auto"; 
+    } else {
+        // Show the error message
+        document.getElementById("error-message").style.display = "block";
+    }
+}
+
+// Block scrolling while locked
+document.body.style.overflow = "hidden";
+
+// Allow pressing "Enter" key to submit
+document.getElementById("password-input").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        checkPassword();
+    }
+});
+</script>
+</body>
+</html>
